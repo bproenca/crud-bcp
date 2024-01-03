@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  oci-app-bcp:
+    image: bproenca/crud-bcp:v2
+    restart: always
+    volumes:
+      - "/<path>/oci_wallet:/opt/oci_wallet"
+    ports:
+      - "8585:8080"
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 150M
+    environment:
+      - JAVA_OPTS=-Xmx100M
+      - SPRING_DATASOURCE_URL=<url>
+      - SPRING_DATASOURCE_USERNAME=<user>
+      - SPRING_DATASOURCE_PASSWORD=<pass>
