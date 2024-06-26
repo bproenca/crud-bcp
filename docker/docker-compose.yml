@@ -2,12 +2,15 @@ version: '3'
 
 services:
   oci-app-bcp:
-    image: bproenca/crud-bcp:v2
+    image: bproenca/crud-bcp:v3
     restart: always
     volumes:
       - "/<path>/oci_wallet:/opt/oci_wallet"
     ports:
       - "8585:8080"
+    logging:
+      options:
+        max-size: "50m"
     deploy:
       resources:
         limits:
