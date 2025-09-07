@@ -89,8 +89,9 @@ public class InfraController {
             InetAddress inetAddress = InetAddress.getLocalHost();
             String hostname = inetAddress.getHostName();
             String ipAddress = inetAddress.getHostAddress();
-            log.info("Hostname {} and Address {}", hostname, ipAddress);
-            return "Hostname: " + hostname + " - IP Address: " + ipAddress + " - At: " + LocalTime.now();
+            String result = "Hostname: " + hostname + " | IP Address: " + ipAddress + " | Version v4" + " | At: " + LocalTime.now();
+            log.info(result);
+            return result;
         } catch (UnknownHostException e) {
             log.error("Unable to retrieve host information");
             return "Unable to retrieve host information";
@@ -119,10 +120,10 @@ public class InfraController {
         Runtime runtime = Runtime.getRuntime();
         StringBuilder builder = new StringBuilder();
         builder.append("## ").append(cnt);
-        builder.append("\nUsed Memory   : " + (runtime.totalMemory() - runtime.freeMemory()) / mb + " mb");
-        builder.append("\nFree Memory   : " + runtime.freeMemory() / mb + " mb");
-        builder.append("\nTotal Memory  : " + runtime.totalMemory() / mb + " mb");
-        builder.append("\nMax Memory    : " + runtime.maxMemory() / mb + " mb");
+        builder.append("\tUsed Memory   : " + (runtime.totalMemory() - runtime.freeMemory()) / mb + " mb");
+        builder.append("\tFree Memory   : " + runtime.freeMemory() / mb + " mb");
+        builder.append("\tTotal Memory  : " + runtime.totalMemory() / mb + " mb");
+        builder.append("\tMax Memory    : " + runtime.maxMemory() / mb + " mb");
         log.info(builder.toString());
         return builder.toString();
     }

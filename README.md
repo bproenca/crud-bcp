@@ -38,5 +38,5 @@ docker-compose -f docker/local-docker-compose.yml down
 
 https://httpie.io/
 ```sh
-http localhost:8585/crud/api/infra/info
+http localhost:8585/crud/infra/info
 ```
