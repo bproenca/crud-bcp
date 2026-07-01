@@ -33,3 +33,4 @@ build/
 .vscode/
 local-run.txt
 docker/local-docker-compose.yml
+.env
